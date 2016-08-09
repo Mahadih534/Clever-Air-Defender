@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Clever Air Defender</title>
+  
+    <style>
+    body {
+        margin: 0;
+       
+        background: #2B2E31 url(Assets/screen-bg.png) repeat;
+    }
+    </style>
+    <!added all js file>
+    
+    <script src="cordova.js"></script>
+   <script src="src/phaser.min.js"></script>
+     <script src="src/Boot.js"></script>
+     <script src="src/Preloader.js"></script>
+     <script src="src/Menu.js"></script>
+    <script src="src/Practise.js"></script>
+    <script src="src/phaser-plugin-virtual-gamepad.js"></script>
+     <script src="src/Option.js"></script>
+     <script src="src/About.js"></script>
+    <script src="src/Splash.js"></script>
+    
+</head>
+
+<body>
+    <script>
+    document.addEventListener("deviceready", function() {
+        setTimeout(function() {
+            navigator.splashscreen.hide();
+        }, 5000, false);
+    });
+    (function() {
+      	var game = new Phaser.Game(800, 480, Phaser.AUTO, 'gameContainer');
+
+   
+    /*added all game state*/
+        
+     game.state.add('Boot',bb.Boot);
+     game.state.add('Preloader',bb.Preloader);
+     game.state.add('Splash',bb.Splash);
+     game.state.add('Menu',bb.Menu);
+    game.state.add('Option',bb.Option);
+    game.state.add('About',bb.About);    
+    game.state.add('Practise',bb.Practise);
+    
+    
+	//	Now start the Boot state.
+	 game.state.start('Boot');
+
+    })();
+    </script>
+</body>
+
+</html>
